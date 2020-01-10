@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+    <!-- Quill JS -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script src="https://cdn.quilljs.com/1.3.6/quill.min.js"></script>
+
+    <!-- Clipboard js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+
+
+
+    <title>Tireóide</title>
+</head>
+<body>
+
+    <h2>Indicação clínica</h2>
+    
+    <label for="indicacao">Indicação clínica:</label>
+    <input name="indicacao" id="indicacao" type="text" size="25">
+    <br>
+    <hr>
+    <input type="checkbox" id="tireoidectomia" value="">Tireoidectomia Total (vai gerar laudo de Cervical normal sem tireóide)
+    <br> 
+    <hr>
+
+    <!-- tireoide -->
+    <h2>Tireóide</h2>
+
+
+    <label for="textura_tireoide">Textura tireóide:</label>
+    <select id="textura_tireoide" multiple="true">
+        <option>Tireóide normal</option>
+        <option>Tireoideopatia inicial</option>
+        <option>Tireoideopatia crônica com dimensões normais</option>
+        <option>Tireoideopatia crônica com dimensões reduzidas</option>
+        <option>Diminutos cistos colóides bilaterais</option>
+        <option>Diminutos cistos colóides lobo direito</option>
+        <option>Diminutos cistos colóides lobo esquerdo</option>
+        <option>Cisto colóide lobo direito</option>
+        <option>Cisto colóide lobo esquerdo</option>    
+
+        
+    </select>
+    <br>
+    <hr>
+
+    <!-- lobo direito -->
+    <h2>Lobo Direito</h2>
+    <label for="medidas_ld">Medidas Lobo Direito:</label>
+    <input name="medidas_ld" id="medidas_ld" type="text" size="25">
+    <br>
+    <br>
+    <input type="checkbox" id="ld_ausente" value="">Lobo direito ausente 
+    <br> 
+    <input type="checkbox" id="nod_ld" value="">Nódulos:   
+
+    <input type="button" id="nod_btn_ld" value="Adicionar" onclick=nodLD()>
+    <br>
+    <br>
+    <div id="nod_ld_desc">
+
+    </div>
+    <hr>
+
+        <!-- istmo -->
+    <h2>Istmo</h2>
+    <label for="medidas_ist">Espessura istmo:</label>
+    <input name="medidas_ist" id="medidas_ist" type="text" size="25">
+    <br>
+    <br>
+    <!-- <input type="checkbox" id="ist_normal" value="">Normal  -->
+    <br> 
+    <input type="checkbox" id="nod_ist" value="">Nódulos:   
+    <input type="button" id="nod_btn_ist" value="Adicionar" onclick="nodIST()">
+    <br>
+    <br>
+    <div id="nod_ist_desc">
+
+    </div>
+    <hr>
+    <!-- lobo esquerdo -->
+    <h2>Lobo esquerdo</h2>
+    <label for="medidas_le">Medidas Lobo esquerdo:</label>
+    <input name="medidas_le" id="medidas_le" type="text" size="25">
+    <br>
+    <br>
+    <input type="checkbox" id="le_ausente" value="">Lobo esquerdo ausente 
+    <br> 
+    <input type="checkbox" id="nod_le" value="">Nódulos:   
+
+    <input type="button" id="nod_btn_le" value="Adicionar" onclick="nodLE()">
+    <br>
+    <br>
+    <div id="nod_le_desc">
+
+    </div>
+    <hr>
+
+    <!-- gerar laudo -->
+    <input type="button" id="GerarLaudo" class="GeraLaudo" value="Gerar Laudo" onclick="criar_laudo()">
+    <hr>
+
+    <!-- laudo -->
+    <!-- <h2>Laudo</h2>
+    <div class="page-wrapper box-content">
+
+        <textarea class="laudo2" name="laudo" id="laudo" cols="150" rows="30" onkeyup="volume()" ></textarea>
+
+    </div>
+    
+    <br>
+    <br> -->
+    <input type="button" id="copiarbtn" class="btnCopiar" value="Copiar" onclick="copiar_laudo()">
+    <input type="button" value="Apagar laudo" onclick="apagar_laudo()">
+
+
+    <h2>Laudo Quill Js</h2>
+
+    <style>
+        #editor {
+            height: 350px;
+        }
+    </style>
+    <div id="editor"></div>
+
+
+
+    <script type="text/javascript" src="tireoide.js"></script>
+
+    <!-- <script>
+        $(document).ready(function() {
+            $('.laudo2').richText();
+        });
+    </script> -->
+ 
+
+
+
+</body>
+</html>
